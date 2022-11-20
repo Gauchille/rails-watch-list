@@ -8,8 +8,12 @@ les différentes listes affichées les unes après les autres  %>
   <div class="row">
     <% @lists.each do |list| %>
       <div class="col-4">
+        <%= link_to list_path(list), class:"text-decoration-none" do %>
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=  list.photo.attached? ? cl_image_path(list.photo.key) : asset_path('https://picsum.photos/200/300')  %>)">
+            <%= list.name %>
+          </div>
+        <% end %>
       </div>
     <% end %>
-
   </div>
 </div>
